@@ -3,11 +3,10 @@ const http = require('http');
 const url = require('url');
 // querystring 모듈 로드
 const querystring = require('querystring');
-
+// 회원, 상품, 구매 모듈
 const members = require('./monolithic_members.js');
 const goods = require('./monolithic_goods.js');
 const purchases = require('./monolithic_purchases.js');
-
 //http서버 만들고 요청처리
 var server = http.createServer((req, res) => {
     var method = req.method;
@@ -26,13 +25,13 @@ var server = http.createServer((req, res) => {
             } else {
                 params = querystring.parse(body);
             }
-            onRequest(res, method, pathname,params);
-            });
-        } else {
-            onRequest(res, method, pathname, uri.query);
-        }
-    }).listen(8000);
 
+            onRequest(res, method, pathname,params);
+        });
+    } else {
+        onRequest(res, method, pathname, uri.query);
+    }
+}).listen(8000);
 // 요청별로 회원/상품/구매 모듈 분기
 function onRequest(res, method, pathname, params) {
     switch (pathname) {
@@ -53,7 +52,6 @@ function onRequest(res, method, pathname, params) {
 // http 프로토콜 (200 정상처리)
 // json형식 응답
 function response(res, packet) {
-    res.writeHead(200, { 'Content-Type':
-    'application/json' });
+    res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(packet));
 }
