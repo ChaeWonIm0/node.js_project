@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ChaeWonIm0/node.js_project/issues"
   },
-  "homepage": "https://github.com/ChaeWonIm0/node.js_project#readme"
+  "homepage": "https://github.com/ChaeWonIm0/node.js_project#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
 }
