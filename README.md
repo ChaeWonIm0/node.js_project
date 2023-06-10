@@ -4,4 +4,4 @@
 This is for training and referencing node.js framework
 
 #### 2023_06_07
-- made some monolithics (goods, member, purchase)! thats it
+- made some monolithics (goods, member, purchase)! ya. thats it
