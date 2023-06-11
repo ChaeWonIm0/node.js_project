@@ -31,7 +31,7 @@ var server = http.createServer((req, res) => {
     } else {
         onRequest(res, method, pathname, uri.query);
     }
-}).listen(8000);
+}).listen(80);
 // 요청별로 회원/상품/구매 모듈 분기
 function onRequest(res, method, pathname, params) {
     switch (pathname) {
