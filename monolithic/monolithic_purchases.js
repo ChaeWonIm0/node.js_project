@@ -59,7 +59,7 @@ function inquiry(method, pathname, params, cb) {
     } else {
         var connection = mysql.createConnection(conn);
         connection.connect();
-        connection.query("SELECT id, goodsid, date FROM purchases WHERE userid = ?"
+        connection.query("select id, goodsid, date from purchases where userid = ?"
         , [params.userid]
         , (error, results, fields) => {
         if (error) {

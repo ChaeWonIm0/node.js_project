@@ -1,3 +1,5 @@
+// 스트릭트 모드
+'use strict';
 const http = require('http');
 var options = {
     host : '127.0.0.1',
@@ -63,7 +65,7 @@ function members(callback) {
         options.path = "/members";
         request(cb, {
             username: "AI",
-            password : "1234",
+            password: "1234",
             passwordConfirm: "1234"
         });
     }
