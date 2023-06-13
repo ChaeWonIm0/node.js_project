@@ -55,3 +55,4 @@ function response(res, packet) {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(packet));
 }
+// monolithic 자체도 미래에 마이크로서비스로 독립하여 쳐낼 것을 고려하고 설계
