@@ -1,4 +1,4 @@
-'use strict'
+
 // 비즈니스 logic 참조
 const business = require('../monolithic/monolithic_goods');
 class goods extends require('./server.js') {

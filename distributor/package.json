@@ -1,0 +1,12 @@
+{
+  "name": "distributor",
+  "version": "1.0.0",
+  "description": "- distributor system : star topology\r (Going to be micro servie architecture)\r - server type : TCP\r - servername : distributor\r - server term : connectToDistributor 클래스\r - server : server.js\r ### 2023-06-14\r  시스템 레이어 : 게이트웨이 | 마이크로서비스\r 1. 게이트웨이 : gate.js\r 2. 분산처리 서버 : distributor.js\r 3. 마이크로서비스(들): microservice_goods.js, microservice_member.js, microservice_purchases.js",
+  "main": "distributor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

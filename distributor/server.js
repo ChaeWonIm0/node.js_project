@@ -1,5 +1,4 @@
-// 스트릭트 모드
-'use strict';
+
 const net = require('net');
 const tcpClient = require('./client.js');
 

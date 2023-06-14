@@ -1,4 +1,4 @@
-'use strict';
+
 // microservice_members와 동일한 로직 적용
 const business = require('../monolithic/monolithic_purchases.js');
 class purchases extends require('./server.js') {
