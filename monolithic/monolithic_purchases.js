@@ -10,10 +10,10 @@ const conn = {
 exports.onRequest = function(res, method, pathname, params, cb) {
     switch(method) {
         case "POST":
-            return register(res, method, pathname, params, (response) => {
+            return register(method, pathname, params, (response) => {
                 process.nextTick(cb, res, response); });
         case "GET":
-            return inquiry(res, method, pathname, params, (response) => {
+            return inquiry(method, pathname, params, (response) => {
                 process.nextTick(cb, res, response); });
         default:
             return process.nextTick(cb, res, null);
@@ -21,6 +21,10 @@ exports.onRequest = function(res, method, pathname, params, cb) {
 }
 // 구매 등록 기능
 function register(method, pathname, params, cb) {
+    if (typeof cb !== 'function') {
+        console.error('cb is not function1');
+        return;
+    }
     var response ={
         key: params.key,
         errorcode: 0,
@@ -47,11 +51,16 @@ function register(method, pathname, params, cb) {
 }
 // inquiry로 구매내역 조회 기능
 function inquiry(method, pathname, params, cb) {
+    if (typeof cb !== 'function') {
+        console.error('cb is not function2');
+        return;
+    }
     var response = {
         key : params.key,
         errorcode : 0,
         errormessage : "success"
     };
+
     if (params.userid == null) {
         response.errorcode = 1;
         response.errormessage = "Invalid Parameters";

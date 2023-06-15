@@ -1,13 +1,14 @@
 
+'use strict'
 //HTTP 게이트웨이 생성
 const http = require('http');
 const url = require('url');
 const querystring = require('querystring');
 const tcpClient = require('./client');
 
-var mapClient = {};
+var mapClients = {};
 var mapUrls = {};
-var marResponse = {};
+var mapResponse = {};
 var mapRR = {};
 var index = 0;
 
@@ -29,7 +30,7 @@ var server = http.createServer((req, res) => {
                 // 그외의 경우 querystring 파싱
                 params = querystring.parse(body);
             }
-            onRequest(res, method, pathname, parms);
+            onRequest(res, method, pathname, params);
         });        
     } else {
         onRequest(res, method, pathname, uri.query);
@@ -91,7 +92,7 @@ function onDistribute(data) {
     for (var n in data.params) {
         var node = data.params[n];
         var key = node.host + ":" + node.port;
-        if (mapClinets[key] == null && node.name != "gate") {
+        if (mapClients[key] == null && node.name != "gate") {
             var client = new tcpClient(node.host, node.port, onCreateClient, onReadClient, onEndClient,
                 onErrorClient);
             mapClients[key] = {
