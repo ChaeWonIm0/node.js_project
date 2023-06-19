@@ -2,7 +2,7 @@ const mysql = require('mysql');
 
 const conn = {
     host : 'localhost',
-    user : 'micro',
+    user : 'root',
     password : '0000',
     database : 'monolithic'
 };
